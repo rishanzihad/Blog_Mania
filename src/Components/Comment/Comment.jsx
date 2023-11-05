@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 
 const Comment = ({id}) => {
     const {user}=useContext(AuthContext)
-    const navigate =useNavigate()
+
     const handleComment =e=>{
         e.preventDefault()
         const form =e.target 
@@ -19,7 +19,7 @@ const Comment = ({id}) => {
             
 
         }
-        fetch('http://localhost:3006/comment', {
+        fetch('http://localhost:3006/comments', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -31,7 +31,7 @@ const Comment = ({id}) => {
 
                 if (data.acknowledged) {
                     form.reset()
-                    navigate('/')
+                   
                     toast.success('Comment Added Successfully')
 
 
