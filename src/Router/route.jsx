@@ -26,7 +26,8 @@ const route =createBrowserRouter([
             },
             {
                 path:'/allblogs',
-                element:<AllBlogs></AllBlogs>
+                element:<AllBlogs></AllBlogs>,
+                loader:()=> fetch('http://localhost:3006/blogs')
             },
             {
                 path:'/wishlist',
