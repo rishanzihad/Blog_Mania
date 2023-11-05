@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 
 
@@ -8,17 +9,21 @@ const AddBlog = () => {
   
 
     const navigate = useNavigate()
+    const {user}=useContext(AuthContext)
+    
     const handleAddBlog = e => {
         e.preventDefault()
         const form = e.target
         const title = form.tittle.value
         const time = form.time.value
         const image = form.image.value
+       const email =user.email
         const category = form.category.value
         const shortDescription = form.shortDescription.value
         const longDescription = form.longDescription.value
 
-        const addBlog = { title, time, image, category, shortDescription,longDescription }
+        const addBlog = { title, time, image, category, shortDescription,longDescription,email}
+        console.log(addBlog)
         fetch('http://localhost:3006/blogs', {
             method: "POST",
             headers: {

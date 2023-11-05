@@ -11,7 +11,7 @@ const DetailsBlog = () => {
     useEffect(()=>{
         const findBlog =blogs && blogs?.find(blog => blog._id == id)
         setBlog(findBlog)
-        console.log(findBlog)
+      
     },[id,blogs])
   
     return (
