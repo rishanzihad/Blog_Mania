@@ -7,11 +7,13 @@ import AddBlog from "../Pages/AddBlog/AddBlog";
 import AllBlogs from "../Pages/AllBlogs/AllBlogs";
 import Wishlist from "../Pages/Wishlist/Wishlist";
 import FeatureBlogs from "../Pages/FeatureBlogs/FeatureBlogs";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const route =createBrowserRouter([
     {
         path:'/',
         element:<Layout></Layout>,
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                 path:'/',
