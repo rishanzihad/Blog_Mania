@@ -8,6 +8,8 @@ import AllBlogs from "../Pages/AllBlogs/AllBlogs";
 import Wishlist from "../Pages/Wishlist/Wishlist";
 import FeatureBlogs from "../Pages/FeatureBlogs/FeatureBlogs";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import DetailsBlog from "../Components/DetailsBlog/DetailsBlog";
 
 const route =createBrowserRouter([
     {
@@ -36,7 +38,13 @@ const route =createBrowserRouter([
             {
                 path:'/featuredblogs',
                 element:<FeatureBlogs></FeatureBlogs>
-            }
+            },
+            {
+                path:'/details/:id',
+                element:<PrivateRoute><DetailsBlog></DetailsBlog></PrivateRoute>,
+                loader:()=>fetch('http://localhost:3006/blogs')
+                
+            },
         ]
     },
     {

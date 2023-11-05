@@ -16,7 +16,9 @@ const AddBlog = () => {
         const image = form.image.value
         const category = form.category.value
         const shortDescription = form.shortDescription.value
-        const addBlog = { title, time, image, category, shortDescription }
+        const longDescription = form.longDescription.value
+
+        const addBlog = { title, time, image, category, shortDescription,longDescription }
         fetch('http://localhost:3006/blogs', {
             method: "POST",
             headers: {
