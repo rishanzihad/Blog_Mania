@@ -1,10 +1,15 @@
-import Footer from "../Footer/Footer";
+import Banner from "../Banner/Banner";
+import NewsLetter from "../NewsLetter/NewsLetter";
+import RecentBlog from "../RecentBlog/RecentBlog";
+
 
 
 const Home = () => {
     return (
         <div>
-             <Footer></Footer>
+            <Banner></Banner>
+            <RecentBlog></RecentBlog>
+            <NewsLetter></NewsLetter>
         </div>
     );
 };
