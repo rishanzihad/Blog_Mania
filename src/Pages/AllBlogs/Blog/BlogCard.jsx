@@ -1,7 +1,7 @@
 import React from 'react';
 
 const BlogCard = ({blog}) => {
-    console.log(blog)
+    
     const { title, time, image, category, shortDescription }=blog
     return (
         <div className="relative mt-20 flex flex-col text-gray-700 bg-white shadow-md  rounded-xl bg-clip-border">
