@@ -27,14 +27,14 @@ const AllBlogs = () => {
         const category =e.target.value
         const matchedCategory = Blogs.filter(blog => blog.category.toLowerCase() == category.toLowerCase());
             setBlog(matchedCategory);
-        console.log(category)
+      
     }
     return (
         <div>
             <div className="md:flex gap-4 px-4 justify-center mt-5 ">
-               <form onSubmit={handleSearch}>
-               <input type="text" name='name' placeholder="Search here" className=" py-3 rounded-l-lg bg-slate-300 px-2 input-bordered input-accent w-full max-w-xs" />
-                <button type="submit" className="py-3 px-2 rounded-r-lg bg-red-400">Search</button>
+               <form className="flex" onSubmit={handleSearch}>
+               <input type="text" name='name' placeholder="Search here" className=" flex-1 py-3 max-w-[425px] rounded-l-lg bg-slate-300 px-2 input-bordered input-accent " />
+                <button type="submit" className="py-3 px-2 rounded-r-lg  bg-red-400">Search</button>
                </form>
                 <form    className="relative mt-4 md:mt-0  ">
                     <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.1] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
