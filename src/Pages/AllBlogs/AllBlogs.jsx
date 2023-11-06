@@ -73,7 +73,7 @@ const AllBlogs = () => {
             </div>
            <div>
                { noAddBlog ? <p className="h-[50vh] flex justify-center items-center">{noAddBlog}</p>:
-            <div className="grid gap-4  md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4   md:grid-cols-2 ">
                 {
                   blog?.map(blog=><BlogCard key={blog._id} blog={blog}></BlogCard>)
                 }
