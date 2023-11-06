@@ -1,11 +1,13 @@
 import { Button } from '@material-tailwind/react';
 
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import AddBlog from '../../AddBlog/AddBlog';
 import toast from 'react-hot-toast';
+import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
 const BlogCard = ({blog}) => {
+  const{user}=useContext(AuthContext)
   const {_id, title, time, image, category, shortDescription }=blog
     const [wishListBlog,setWishListBlog]=useState([])
 
@@ -25,7 +27,8 @@ const BlogCard = ({blog}) => {
     
       if (matchedBlog) {
         const oneBlog = {
-          _id: matchedBlog._id,
+          email:user.email,
+          longDescription:matchedBlog.longDescription,
           title: matchedBlog.title,
           time: matchedBlog.time,
           image: matchedBlog.image,
@@ -33,7 +36,7 @@ const BlogCard = ({blog}) => {
           shortDescription: matchedBlog.shortDescription,
         };
       console.log(oneBlog)
-      fetch(``, {
+      fetch(`http://localhost:3006/wishlist`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -43,7 +46,15 @@ const BlogCard = ({blog}) => {
         .then(res => res.json())
         .then(data => {
           console.log(data);
-          toast.success('Product Added in WishList Successfully');
+          if (data.acknowledged) {
+
+          
+            toast.success('Product Added in WishList Successfully');
+          
+
+        }
+        
+
           //navigate('/');
       })
 
