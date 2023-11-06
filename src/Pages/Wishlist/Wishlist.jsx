@@ -1,5 +1,8 @@
+import { useParams } from "react-router-dom";
 
-const Wishlist = () => {
+const Wishlist = ({id}) => {
+   
+    console.log(id)
     return (
         <div>
             

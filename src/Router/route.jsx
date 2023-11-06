@@ -10,6 +10,7 @@ import FeatureBlogs from "../Pages/FeatureBlogs/FeatureBlogs";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import DetailsBlog from "../Components/DetailsBlog/DetailsBlog";
+import UpdateBlog from "../Components/UpdateBlog/UpdateBlog";
 
 const route =createBrowserRouter([
     {
@@ -33,8 +34,13 @@ const route =createBrowserRouter([
             },
             {
                 path:'/wishlist',
-                element:<Wishlist></Wishlist>
+                element:<PrivateRoute><Wishlist></Wishlist></PrivateRoute>
             },
+            {
+                path:'//update/:id',
+                element:<PrivateRoute><UpdateBlog></UpdateBlog></PrivateRoute>,
+                loader:({params})=>fetch(`http://localhost:3006/blogs/${params.id}`)
+              },
             {
                 path:'/featuredblogs',
                 element:<FeatureBlogs></FeatureBlogs>

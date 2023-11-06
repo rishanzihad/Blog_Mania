@@ -25,6 +25,7 @@ const ShowCOmment = ({id}) => {
 
     return (
         <div className=" max-w-screen-lg">
+            <h1 className=" text-center text-4xl font-bold mb-2">Comment Box</h1>
             <div className="comment-section grid md:grid-cols-2 gap-4  h-64 overflow-y-auto">
                 {singlePostComment.map((single) => (
                     <CommentCard key={single.id} single={single} />

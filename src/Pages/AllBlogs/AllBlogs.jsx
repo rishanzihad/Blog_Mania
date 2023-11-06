@@ -1,32 +1,45 @@
 import { useLoaderData } from "react-router-dom";
 import BlogCard from "./Blog/BlogCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 const AllBlogs = () => {
     const Blogs = useLoaderData()
     const [blog,setBlog]=useState(Blogs)
-  
+    const [noAddBlog, setNoAddBlog] =useState(false)
     const handleSearch =e=>{
         e.preventDefault()
         const form =e.target
         const name=form.name.value
         if (name) {
-            const search = name.slice(0,4).toLowerCase(); 
-            console.log(search)
-            const matchedBlog = Blogs.find(blog => blog.title.slice(0,4).toLowerCase() == search);
-            setBlog(matchedBlog);
-            
+            const search = name.slice(0, 4).toLowerCase();
+            const matchedBlog = Blogs.find((blog) => blog.title.slice(0, 4).toLowerCase() === search);
+            if (matchedBlog) {
+              setBlog([matchedBlog]); 
+              setNoAddBlog(false); 
+            } else {
+              setBlog([]); 
+              setNoAddBlog('No Blog Found');
+            }
           }
-          
-          form.reset('');
-       
-    }
+          form.reset();
+        };
     const handleCategory =e=>{
         e.preventDefault()
         const category =e.target.value
         const matchedCategory = Blogs.filter(blog => blog.category.toLowerCase() == category.toLowerCase());
-            setBlog(matchedCategory);
+           
+        
+                if(matchedCategory.length>0){
+            
+                    setBlog(matchedCategory)
+                    setNoAddBlog(false)
+                }
+                else{
+                    setBlog([])
+                    setNoAddBlog('No Blog Found')
+                }
+          
       
     }
     return (
@@ -58,12 +71,15 @@ const AllBlogs = () => {
                     </select>
                 </form>
             </div>
-            <div className="grid md:grid-cols-2">
+           <div>
+               { noAddBlog ? <p className="h-[50vh] flex justify-center items-center">{noAddBlog}</p>:
+            <div className="grid gap-4  md:grid-cols-2 lg:grid-cols-3">
                 {
-                    blog.map(blog=><BlogCard key={blog._id} blog={blog}></BlogCard>)
+                  blog?.map(blog=><BlogCard key={blog._id} blog={blog}></BlogCard>)
                 }
-            
-            </div>
+               
+            </div>}
+           </div>
         </div>
 
     );

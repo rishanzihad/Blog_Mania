@@ -11,7 +11,7 @@ const Comment = ({ id, email }) => {
 
 
     const handleComment = e => {
-      //  e.preventDefault()
+       e.preventDefault()
         const form = e.target
         if (email === user.email) {
             toast.error("You cannot comment on your own post.");
