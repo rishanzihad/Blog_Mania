@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import ShowCOmment from "./ShowCOmment";
 import { Navigate, useNavigate } from "react-router-dom";
 
-const Comment = ({ id, email }) => {
+const Comment = ({ title, email }) => {
     const { user } = useContext(AuthContext)
    
 
@@ -22,7 +22,8 @@ const Comment = ({ id, email }) => {
             comment,
             name: user.displayName,
             image: user.photoURL,
-            id: id
+          //  id: id
+          title:title
 
 
         }
@@ -49,7 +50,7 @@ const Comment = ({ id, email }) => {
     return (
         <div className="md:flex flex-row-reverse items-center p-5 gap-4  mt-10">
             <div className="flex-1 mb-5 max-w-xl overflow-x-auto">
-                <ShowCOmment id={id} ></ShowCOmment>
+                <ShowCOmment title={title} ></ShowCOmment>
             </div>
             <div className="flex-1" >
 

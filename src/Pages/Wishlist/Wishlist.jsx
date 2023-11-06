@@ -14,8 +14,6 @@ const Wishlist = () => {
        const filterAddBlog = wishlist && wishlist?.filter(blog => blog.email == email.toLowerCase())
 
 
-       
-
        if(filterAddBlog.length>0){
            setWishList(filterAddBlog)
        
@@ -29,7 +27,7 @@ const Wishlist = () => {
    
     return (
         noCard ? <p className="h-[50vh] flex justify-center items-center">{noCard}</p>:
-        <div>
+        <div className="grid md:grid-cols-2">
             {
                 wishlist.map(wish=><WishlistCard key={wish._id} wish={wish}></WishlistCard>)
             }

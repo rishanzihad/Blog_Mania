@@ -11,56 +11,67 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import DetailsBlog from "../Components/DetailsBlog/DetailsBlog";
 import UpdateBlog from "../Components/UpdateBlog/UpdateBlog";
+import WishDetails from "../Components/WishListDetails/WishDetails";
 
-const route =createBrowserRouter([
+
+const route = createBrowserRouter([
     {
-        path:'/',
-        element:<Layout></Layout>,
-        errorElement:<ErrorPage></ErrorPage>,
-        children:[
+        path: '/',
+        element: <Layout></Layout>,
+        errorElement: <ErrorPage></ErrorPage>,
+        children: [
             {
-                path:'/',
-                element:<Home></Home>
+                path: '/',
+                element: <Home></Home>
             },
-           
+
             {
-                path:'/addblog',
-                element:<AddBlog></AddBlog>
-            },
-            {
-                path:'/allblogs',
-                element:<AllBlogs></AllBlogs>,
-                loader:()=> fetch('http://localhost:3006/blogs')
+                path: '/addblog',
+                element: <AddBlog></AddBlog>
             },
             {
-                path:'/wishlist',
-                element:<PrivateRoute><Wishlist></Wishlist></PrivateRoute>,
-                loader:()=>fetch('http://localhost:3006/wishlist')
+                path: '/allblogs',
+                element: <AllBlogs></AllBlogs>,
+                loader: () => fetch('http://localhost:3006/blogs')
             },
             {
-                path:'//update/:id',
-                element:<PrivateRoute><UpdateBlog></UpdateBlog></PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:3006/blogs/${params.id}`)
-              },
-            {
-                path:'/featuredblogs',
-                element:<FeatureBlogs></FeatureBlogs>
+                path: '/wishlist',
+                element: <PrivateRoute><Wishlist></Wishlist></PrivateRoute>,
+                loader: () => fetch('http://localhost:3006/wishlist')
             },
             {
-                path:'/details/:id',
-                element:<PrivateRoute><DetailsBlog></DetailsBlog></PrivateRoute>,
-                loader:()=>fetch('http://localhost:3006/blogs')
-                
+                path: '//update/:id',
+                element: <PrivateRoute><UpdateBlog></UpdateBlog></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:3006/blogs/${params.id}`)
             },
+            {
+                path: '/featuredblogs',
+                element: <FeatureBlogs></FeatureBlogs>
+            },
+            {
+                path: '/details/:id',
+                element: <PrivateRoute><DetailsBlog></DetailsBlog></PrivateRoute>,
+                loader: () => fetch('http://localhost:3006/blogs')
+
+            },
+
+            {
+                path: '/wishdetails/:id',
+                element: <PrivateRoute><WishDetails></WishDetails></PrivateRoute>,
+                loader: () => fetch('http://localhost:3006/wishlist')
+
+            },
+
+
         ]
     },
     {
-        path:'/login',
-        element:<Login></Login>
+        path: '/login',
+        element: <Login></Login>
     },
     {
-        path:'/register',
-        element:<Register></Register>
+        path: '/register',
+        element: <Register></Register>
     },
 ])
 export default route;

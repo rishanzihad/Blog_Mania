@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Comment from "../Comment/Comment";
 
 
-const DetailCard = ({ blog }) => {
+const WishDetailsCard = ({ blog }) => {
     const { _id,title,  image, category, shortDescription, longDescription,email } = blog
     return (
         <div className="mt-10">
@@ -54,4 +54,6 @@ const DetailCard = ({ blog }) => {
     );
 };
 
-export default DetailCard;
+
+
+export default WishDetailsCard;

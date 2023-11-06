@@ -10,6 +10,7 @@ const BlogCard = ({blog}) => {
   const{user}=useContext(AuthContext)
   const {_id, title, time, image, category, shortDescription }=blog
     const [wishListBlog,setWishListBlog]=useState([])
+    const [oneWish,setOneWish]=useState([])
 
 
     useEffect(()=>{
@@ -20,49 +21,50 @@ const BlogCard = ({blog}) => {
       
   
     },[])
-    const handleWish =(id)=>{
-     
-      let matchedBlog = wishListBlog.find((singleWish) => singleWish._id === id);
-    
+    const handleWish = (id) => {
+      const matchedBlog = wishListBlog.find((singleWish) => singleWish._id === id);
     
       if (matchedBlog) {
-        const oneBlog = {
-          email:user.email,
-          longDescription:matchedBlog.longDescription,
-          title: matchedBlog.title,
-          time: matchedBlog.time,
-          image: matchedBlog.image,
-          category: matchedBlog.category,
-          shortDescription: matchedBlog.shortDescription,
-        };
-      console.log(oneBlog)
-      fetch(`http://localhost:3006/wishlist`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(oneBlog)
-    })
-        .then(res => res.json())
-        .then(data => {
-          console.log(data);
-          if (data.acknowledged) {
-
-          
-            toast.success('Product Added in WishList Successfully');
-          
-
-        }
-        
-
-          //navigate('/');
-      })
-
-
     
+        const isDuplicate = oneWish.some((item) => item._id === matchedBlog._id);
+    
+        if (isDuplicate) {
+    
+          toast.error('This blog is already in your wishlist.');
+        } else {
+        
+          setOneWish([...oneWish, matchedBlog]);
+    
+         
+          const oneBlog = {
+            email: user.email,
+            //_id: matchedBlog._id,
+            longDescription: matchedBlog.longDescription,
+            title: matchedBlog.title,
+            time: matchedBlog.time,
+            image: matchedBlog.image,
+            category: matchedBlog.category,
+            shortDescription: matchedBlog.shortDescription,
+          };
+    
+       
+          fetch(`http://localhost:3006/wishlist`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(oneBlog),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              if (data.acknowledged) {
+                toast.success('Product Added in WishList Successfully');
+              }
+            });
+        }
       }
-      }
-
+    };
   
 
 

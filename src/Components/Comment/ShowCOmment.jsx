@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import CommentCard from "./CommentCard";
 
 
-const ShowCOmment = ({id}) => {
+const ShowCOmment = ({title}) => {
     
     const [comment,setComment]=useState([])
     const [singlePostComment,setSinglePostComment]=useState([])
@@ -15,12 +15,12 @@ const ShowCOmment = ({id}) => {
         
     },[])
     useEffect(()=>{
-        const findComment =comment && comment?.filter(comment => comment.id == id)
+        const findComment =comment && comment?.filter(comment => comment.title == title)
       setSinglePostComment(findComment)
        
       
       
-    },[id,comment])
+    },[title,comment])
     
 
     return (
