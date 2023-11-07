@@ -22,7 +22,8 @@ const route = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: () => fetch('http://localhost:3006/blogs')
             },
 
             {

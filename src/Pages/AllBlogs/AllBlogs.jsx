@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import BlogCard from "./Blog/BlogCard";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 
 
 const AllBlogs = () => {

@@ -6,11 +6,14 @@ const WishlistCard = ({wish,handleDelete}) => {
 
     return (
         <div className="relative flex w-full ] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg">
-  <div className="relative mx-4 mt-4 overflow-hidden text-white shadow-lg rounded-xl bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40">
-    <img
+  <div className="relative mx-4 h-2/3   mt-4 overflow-hidden text-white shadow-lg rounded-xl bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40">
+ 
+   <img
+   className="h-full"
       src={image}
       alt="ui/ux review check"
     />
+  
     <div className="absolute inset-0 w-full h-full to-bg-black-10 bg-gradient-to-tr from-transparent via-transparent to-black/60"></div>
     <button
       className="!absolute top-4 right-4 h-8 max-h-[32px] w-8 max-w-[32px] select-none rounded-full text-center align-middle font-sans text-xs font-medium uppercase text-red-500 transition-all hover:bg-red-500/10 active:bg-red-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
@@ -30,7 +33,7 @@ const WishlistCard = ({wish,handleDelete}) => {
       </span>
     </button>
   </div>
-  <div className="p-6">
+  <div className="p-6 flex-1">
     <div className="flex items-center justify-between mb-3">
       <h5 className="block font-sans text-xl antialiased font-medium leading-snug tracking-normal text-blue-gray-900">
         Wooden House, Florida

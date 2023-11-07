@@ -2,11 +2,12 @@ import { Button } from '@material-tailwind/react';
 
 import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import AddBlog from '../../AddBlog/AddBlog';
-import toast from 'react-hot-toast';
-import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
-const BlogCard = ({blog}) => {
+import toast from 'react-hot-toast';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
+
+
+const RecentBlogCard = ({blog}) => {
   const{user}=useContext(AuthContext)
   const {_id, title, time, image, category, shortDescription,email }=blog
     const [wishListBlog,setWishListBlog]=useState([])
@@ -112,4 +113,4 @@ const BlogCard = ({blog}) => {
     );
 };
 
-export default BlogCard;
+export default RecentBlogCard;

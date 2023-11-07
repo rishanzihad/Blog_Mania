@@ -15,7 +15,7 @@ const NewsLetter = () => {
     }
     return (
         <div className=" max-w-[1300px] py-20 mt-10  bg-slate-300 mx-auto">
-            <h1 className=" md:text-5xl text-3xl text-center ">WelCome NewsLetter</h1>
+            <h1 className=" md:text-5xl font-bold text-3xl text-center ">WelCome NewsLetter</h1>
             <form onSubmit={handleNewsLetter}>
                <div className="flex justify-center items-center ">
                <div className="form-control w-2/4  ">

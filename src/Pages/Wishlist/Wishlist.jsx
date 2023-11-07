@@ -65,7 +65,7 @@ const Wishlist = () => {
 
     return (
         //noCard ? <p className="h-[50vh] flex justify-center items-center">{noCard}</p>:
-        <div className="grid md:grid-cols-2">
+        <div className="grid md:grid-cols-2 gap-5">
             {
                 wishlist.map(wish=><WishlistCard key={wish._id} handleDelete={handleDelete} wish={wish}></WishlistCard>)
             }
