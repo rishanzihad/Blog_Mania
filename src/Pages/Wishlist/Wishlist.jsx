@@ -5,6 +5,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 import useAxiosSecure from "../../Components/Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 const Wishlist = () => {
     const {user}=useContext(AuthContext)
@@ -28,22 +29,37 @@ const Wishlist = () => {
       
   }, [url,axiosSecure, email])
 
-  const handleDelete = id => {
-    const proceed = confirm('Are You sure you want to delete');
-    if (proceed) {
-        fetch(`http://localhost:3006/wishlist/${id}`, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.deletedCount > 0) {
-                    toast.success('deleted successful');
-                    const remaining = wishlist.filter(blog => blog._id !== id);
-                    setWishList(remaining);
-                }
+  const handleDelete = (_id) => {
+
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+                console.log(_id)
+            fetch(`http://localhost:3006/wishlist/${_id}`, {
+                method: 'DELETE'
             })
-    }
+
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                  
+                   
+                     if (data.deletedCount > 0) {
+                        toast.success('Delete Successful')
+                     const remaining = wishlist.filter(blog => blog._id !== _id);
+                      setWishList(remaining);
+                 
+                     }
+                })
+        }
+    })
 }
 
 

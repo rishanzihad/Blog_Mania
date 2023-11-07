@@ -39,7 +39,7 @@ const BlogCard = ({blog}) => {
           const oneBlog = {
             email: user.email,
             postEmail:email,
-            _id: matchedBlog._id,
+            //_id: matchedBlog._id,
             longDescription: matchedBlog.longDescription,
             title: matchedBlog.title,
             time: matchedBlog.time,
