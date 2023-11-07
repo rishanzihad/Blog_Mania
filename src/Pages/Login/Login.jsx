@@ -15,9 +15,22 @@ const Login = () => {
       googleLogin()
      
       .then(res=>{
-       
-         toast.success('User Log In Successfully')
-         navigate(location?.state? location.state:'/')
+        console.log(res)
+        const loggedInUser = res.user;
+         
+          const email = res.user.email;
+          const user ={email}
+
+          console.log(res.user.email)
+          axios.post('http://localhost:3006/jwt', user,{withCredentials:true})
+          .then(res => {
+              console.log(res.data)
+              if (res.data.success) {
+                  toast.success('User Log In Successfully')
+                  //navigate(location?.state ? location?.state : '/')
+              }
+          })
+     
       })
     .catch(error =>toast.error(error.message))
   }
@@ -28,9 +41,9 @@ const Login = () => {
         login(email,password)
         .then(res=>{
           const loggedInUser = res.user;
-          console.log(loggedInUser);
+         
           const user = { email };
-          axios.post('http://localhost:3001/jwt', user,{withCredentials:true})
+          axios.post('http://localhost:3006/jwt', user,{withCredentials:true})
           .then(res => {
               console.log(res.data)
               if (res.data.success) {
