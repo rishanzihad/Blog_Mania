@@ -2,11 +2,13 @@
 
 import { Link } from "react-router-dom";
 import Comment from "../Comment/Comment";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { useContext } from "react";
 
 
 const DetailCard = ({ blog }) => {
-    const { _id,title,  image, category, shortDescription, longDescription,email } = blog
-    
+    const { _id, title, image, category, shortDescription, longDescription, email } = blog
+    const { user } = useContext(AuthContext)
     return (
         <div className="mt-10">
             <div className="relative flex flex-col text-gray-700 bg-white shadow-md  rounded-xl bg-clip-border">
@@ -42,13 +44,15 @@ const DetailCard = ({ blog }) => {
                     </p>
                 </div>
                 <Link to={`/update/${_id}`}>
-          <button
-            className="block bg-black w-full select-none rounded-lg bg-blue-gray-900/10 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            type="button"
-          >
-            Update
-          </button>
-          </Link>
+                    {email === user.email ? ( 
+                        <button
+                            className="block bg-black w-full select-none rounded-lg bg-blue-gray-900/10 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                            type="button"
+                        >
+                            Update
+                        </button>
+                    ) : null}
+                </Link>
             </div>
             <Comment email={email} title={title}></Comment>
         </div>

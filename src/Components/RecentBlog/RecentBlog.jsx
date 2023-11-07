@@ -1,8 +1,8 @@
-import React from "react";
+
 import RecentBlogCard from "./RecentBlogCard";
 
 const RecentBlog = ({ blogs }) => {
- console.log(blogs)
+
   const sortedBlogs = blogs.sort((a, b) => {
     const dateA = new Date(`${a.date} ${a.time}`);
     const dateB = new Date(`${b.date} ${b.time}`);

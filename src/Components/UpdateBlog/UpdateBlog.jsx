@@ -48,6 +48,8 @@ const UpdateBlog = () => {
     }
 
     return (
+       
+        
         <div>
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col ">
@@ -119,7 +121,8 @@ const UpdateBlog = () => {
             </div>
         </div>
     </div>
-    );
+   
+    )
 };
 
 export default UpdateBlog;
