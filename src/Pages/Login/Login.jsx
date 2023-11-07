@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { FcGoogle } from 'react-icons/fc';
 import Header from "../../Components/Header/Header";
+import axios from "axios";
 
 const Login = () => {
     const {login,googleLogin} =useContext(AuthContext)
@@ -26,8 +27,19 @@ const Login = () => {
         const password =e.target.password.value
         login(email,password)
         .then(res=>{
-          toast.success('User Log In Successfully')
-          navigate(location?.state? location.state:'/')})
+          const loggedInUser = res.user;
+          console.log(loggedInUser);
+          const user = { email };
+          axios.post('http://localhost:3001/jwt', user,{withCredentials:true})
+          .then(res => {
+              console.log(res.data)
+              if (res.data.success) {
+                  toast.success('User Log In Successfully')
+                  //navigate(location?.state ? location?.state : '/')
+              }
+          })
+        })
+        
 
         .catch(error =>toast.error(error.message))
     }
