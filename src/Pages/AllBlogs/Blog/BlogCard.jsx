@@ -8,7 +8,7 @@ import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
 const BlogCard = ({blog}) => {
   const{user}=useContext(AuthContext)
-  const {_id, title, time, image, category, shortDescription }=blog
+  const {_id, title, time, image, category, shortDescription,email }=blog
     const [wishListBlog,setWishListBlog]=useState([])
     const [oneWish,setOneWish]=useState([])
 
@@ -38,7 +38,8 @@ const BlogCard = ({blog}) => {
          
           const oneBlog = {
             email: user.email,
-            //_id: matchedBlog._id,
+            postEmail:email,
+            _id: matchedBlog._id,
             longDescription: matchedBlog.longDescription,
             title: matchedBlog.title,
             time: matchedBlog.time,

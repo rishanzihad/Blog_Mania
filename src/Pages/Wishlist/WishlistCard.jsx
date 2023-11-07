@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 
-const WishlistCard = ({wish}) => {
+const WishlistCard = ({wish,handleDelete}) => {
     const{_id,category,image, title,shortDescription}=wish
     console.log(_id)
     return (
@@ -58,11 +58,10 @@ const WishlistCard = ({wish}) => {
     </p>
     
   </div>
-  <div className=" w-full py-2 px-6 pt-0">
-  <Link className="btn bg-yellow-300 w-full" to={`/wishdetails/${_id}`}> <button >Details</button></Link>
-  </div>
+
   <div className="p-6 pt-3">
     <button
+    onClick={() => handleDelete(_id)}
       className="block w-full select-none rounded-lg bg-pink-500 py-3.5 px-7 text-center align-middle font-sans text-sm font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
       type="button"
       data-ripple-light="true"

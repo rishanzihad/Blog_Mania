@@ -6,6 +6,7 @@ import Comment from "../Comment/Comment";
 
 const DetailCard = ({ blog }) => {
     const { _id,title,  image, category, shortDescription, longDescription,email } = blog
+    
     return (
         <div className="mt-10">
             <div className="relative flex flex-col text-gray-700 bg-white shadow-md  rounded-xl bg-clip-border">

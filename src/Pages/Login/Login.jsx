@@ -27,7 +27,7 @@ const Login = () => {
               console.log(res.data)
               if (res.data.success) {
                   toast.success('User Log In Successfully')
-                  //navigate(location?.state ? location?.state : '/')
+                  navigate(location?.state ? location?.state : '/')
               }
           })
      
@@ -48,7 +48,7 @@ const Login = () => {
               console.log(res.data)
               if (res.data.success) {
                   toast.success('User Log In Successfully')
-                  //navigate(location?.state ? location?.state : '/')
+                  navigate(location?.state ? location?.state : '/')
               }
           })
         })

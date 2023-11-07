@@ -11,7 +11,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import DetailsBlog from "../Components/DetailsBlog/DetailsBlog";
 import UpdateBlog from "../Components/UpdateBlog/UpdateBlog";
-import WishDetails from "../Components/WishListDetails/WishDetails";
+
 
 
 const route = createBrowserRouter([
@@ -37,7 +37,7 @@ const route = createBrowserRouter([
             {
                 path: '/wishlist',
                 element: <PrivateRoute><Wishlist></Wishlist></PrivateRoute>,
-               // loader: () => fetch('http://localhost:3006/wishlist')
+                // loader: () => fetch('http://localhost:3006/wishlist')
             },
             {
                 path: '//update/:id',
@@ -55,12 +55,10 @@ const route = createBrowserRouter([
 
             },
 
-            {
-                path: '/wishdetails/:id',
-                element: <PrivateRoute><WishDetails></WishDetails></PrivateRoute>,
-                loader: () => fetch('http://localhost:3006/wishlist')
+         
 
-            },
+
+
 
 
         ]

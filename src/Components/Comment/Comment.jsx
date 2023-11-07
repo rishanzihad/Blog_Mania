@@ -7,7 +7,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 const Comment = ({ title, email }) => {
     const { user } = useContext(AuthContext)
-   
+   console.log(email)
 
 
     const handleComment = e => {
