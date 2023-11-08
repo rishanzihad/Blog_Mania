@@ -1,8 +1,14 @@
+import {motion} from 'framer-motion'
 
+import { fadeIn } from '../FormarMotion/Framer'
 
 const Banner = () => {
     return (
-        <div className="hero min-h-[70vh]" style={{ backgroundImage: 'url(https://i.ibb.co/MsYZ5Hm/Wallpaper-4k-Preview-Rome.jpg)' }}>
+        <motion.div
+        variants={fadeIn('left',0.40)}
+        initial='hidden'
+        whileInView={"show"}
+        viewport={{once:false,amout:0.9}} className="hero mt-5 min-h-[70vh]" style={{ backgroundImage: 'url(https://i.ibb.co/MsYZ5Hm/Wallpaper-4k-Preview-Rome.jpg)' }}>
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
                 <div className="">
@@ -11,7 +17,7 @@ const Banner = () => {
                     <button className="btn bg-red-500">Explore Us</button>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

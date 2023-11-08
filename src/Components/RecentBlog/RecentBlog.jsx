@@ -1,6 +1,8 @@
 
 import RecentBlogCard from "./RecentBlogCard";
+import {motion} from 'framer-motion'
 
+import { fadeIn } from '../FormarMotion/Framer'
 const RecentBlog = ({ blogs }) => {
 
   const sortedBlogs = blogs.sort((a, b) => {
@@ -10,7 +12,12 @@ const RecentBlog = ({ blogs }) => {
   });
   const recentBlogs = sortedBlogs.slice(0, 6);
   return (
-   <div>
+   <motion.div
+   variants={fadeIn('up',0.40)}
+   initial='hidden'
+   whileInView={"show"}
+   viewport={{once:false,amout:0.9}}
+   >
      <h1 className="text-center text-5xl font-bold mt-10 mb-5 underline">Recent Blogs</h1>
     <div className="grid md:grid-cols-2 gap-4 ">
       
@@ -18,7 +25,7 @@ const RecentBlog = ({ blogs }) => {
         <RecentBlogCard key={blog._id} blog={blog} />
       ))}
     </div>
-   </div>
+   </motion.div>
   );
 };
 
