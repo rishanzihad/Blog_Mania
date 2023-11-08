@@ -96,7 +96,7 @@ const AddBlog = () => {
                         <div className="relative h-32 w-full min-w-[200px]">
                             <textarea
                                 name="longDescription"
-                                className="peer h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border"
+                                className="peer h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border "
                                 placeholder=""
                                 required
                             ></textarea>

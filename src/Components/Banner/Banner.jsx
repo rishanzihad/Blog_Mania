@@ -5,7 +5,7 @@ import { fadeIn } from '../FormarMotion/Framer'
 const Banner = () => {
     return (
         <motion.div
-        variants={fadeIn('left',0.40)}
+        variants={fadeIn('down',0.40)}
         initial='hidden'
         whileInView={"show"}
         viewport={{once:false,amout:0.9}} className="hero mt-5 min-h-[70vh]" style={{ backgroundImage: 'url(https://i.ibb.co/MsYZ5Hm/Wallpaper-4k-Preview-Rome.jpg)' }}>
