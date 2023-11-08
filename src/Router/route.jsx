@@ -23,7 +23,7 @@ const route = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:3006/blogs')
+                loader: () => fetch('https://blog-mania-theta.vercel.app/blogs')
             },
 
             {
@@ -33,17 +33,17 @@ const route = createBrowserRouter([
             {
                 path: '/allblogs',
                 element: <AllBlogs></AllBlogs>,
-                loader: () => fetch('http://localhost:3006/blogs')
+                loader: () => fetch('https://blog-mania-theta.vercel.app/blogs')
             },
             {
                 path: '/wishlist',
                 element: <PrivateRoute><Wishlist></Wishlist></PrivateRoute>,
-                // loader: () => fetch('http://localhost:3006/wishlist')
+                // loader: () => fetch('https://blog-mania-theta.vercel.app/wishlist')
             },
             {
                 path: '//update/:id',
                 element: <PrivateRoute><UpdateBlog></UpdateBlog></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:3006/blogs/${params.id}`)
+                loader: ({ params }) => fetch(`https://blog-mania-theta.vercel.app/blogs/${params.id}`)
             },
             {
                 path: '/featuredblogs',
@@ -52,7 +52,7 @@ const route = createBrowserRouter([
             {
                 path: '/details/:id',
                 element: <PrivateRoute><DetailsBlog></DetailsBlog></PrivateRoute>,
-                loader: () => fetch('http://localhost:3006/blogs')
+                loader: () => fetch('https://blog-mania-theta.vercel.app/blogs')
 
             },
 

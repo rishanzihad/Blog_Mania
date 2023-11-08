@@ -27,19 +27,27 @@ const Register = () => {
         const password =e.target.password.value
         const img =e.target.img.value
 
-        if (password.length < 6) {
-            toast.error('Password must be at least 6 characters');
-            return
-        } else if (!/[A-Z]/.test(password)) {
-            toast.error('Password must contain at least one capital letter');
-            return
+        const lengthPattern = /.{6,}/;
+        const capitalLetterPattern = /[A-Z]/;
+        const specialCharacterPattern = /[^a-zA-Z0-9]/;
+        const numericCharacterPattern = /[0-9]/;
+        if (!lengthPattern.test(password)) {
+            toast.success('Password must be at least 6 characters');
+            return;
+          } else if (!capitalLetterPattern.test(password)) {
+          toast.error('Password must contain at least one capital letter');
+          return;
+        } else if (!specialCharacterPattern.test(password)) {
+          toast.error('Password must contain at least one special character');
+          return;
+        } else if (!numericCharacterPattern.test(password)) {
+          toast.error('Password must contain at least one numeric character');
+          return;
         }
-        else if (!/[^a-zA-Z0-9]/.test(password)){
-            toast.error('Password must contain at least one Special letter');
-            return
-        }
+       
         register(email,password)
             .then(res =>{
+              
             handleUpdateProfile(name,img)
             .then(()=>{
                 toast.success('User Create Successfully')
@@ -73,7 +81,7 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="text" name='email' placeholder="email" className="input input-bordered" />
+                                <input type="email" name='email' placeholder="email" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">

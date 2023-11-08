@@ -27,7 +27,7 @@ const UpdateBlog = () => {
             image, title, shortDescription, longDescription,category
         }
         console.log(UpdateBlog)
-        fetch(`http://localhost:3006/blogs/${singleBlogs._id}`,{
+        fetch(`https://blog-mania-theta.vercel.app/blogs/${singleBlogs._id}`,{
 
             method:"PUT",
             headers:{

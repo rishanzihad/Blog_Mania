@@ -7,7 +7,7 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 
 const axiosSecure=axios.create({
-    baseURL: "http://localhost:3006",
+    baseURL: "https://blog-mania-theta.vercel.app",
     withCredentials:true
 })
 const useAxiosSecure = () => {

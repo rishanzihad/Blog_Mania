@@ -14,7 +14,7 @@ const BlogCard = ({blog}) => {
 
 
     useEffect(()=>{
-      fetch('http://localhost:3006/blogs')
+      fetch('https://blog-mania-theta.vercel.app/blogs')
       .then(res=>res.json())
       .then(data=>setWishListBlog(data))
 
@@ -49,7 +49,7 @@ const BlogCard = ({blog}) => {
           };
     
        
-          fetch(`http://localhost:3006/wishlist`, {
+          fetch(`https://blog-mania-theta.vercel.app/wishlist`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

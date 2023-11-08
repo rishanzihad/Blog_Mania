@@ -9,7 +9,7 @@ const ShowCOmment = ({title}) => {
 
    
     useEffect(()=>{
-        fetch('http://localhost:3006/comments')
+        fetch('https://blog-mania-theta.vercel.app/comments')
         .then(res=>res.json())
         .then(data=>setComment(data))
         

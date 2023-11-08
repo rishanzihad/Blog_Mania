@@ -47,13 +47,13 @@ const AuthProvider = ({children}) => {
             setLoading(false)
             if(currentUser){
          
-                axios.post('http://localhost:3006/jwt',loggedEmail,{withCredential:true})
+                axios.post('https://blog-mania-theta.vercel.app/jwt',loggedEmail,{withCredential:true})
                 .then(res=>{
                     console.log("token response",res.data)
                 })
             }
             else{
-                axios.post('http://localhost:3006/logout',loggedEmail,{
+                axios.post('https://blog-mania-theta.vercel.app/logout',loggedEmail,{
                     withCredentials:true
                 })
                 .then(res=>{

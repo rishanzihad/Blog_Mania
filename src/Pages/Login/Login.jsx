@@ -22,7 +22,7 @@ const Login = () => {
           const user ={email}
 
           console.log(res.user.email)
-          axios.post('http://localhost:3006/jwt', user,{withCredentials:true})
+          axios.post('https://blog-mania-theta.vercel.app/jwt', user,{withCredentials:true})
           .then(res => {
               console.log(res.data)
               if (res.data.success) {
@@ -43,7 +43,7 @@ const Login = () => {
           const loggedInUser = res.user;
          
           const user = { email };
-          axios.post('http://localhost:3006/jwt', user,{withCredentials:true})
+          axios.post('https://blog-mania-theta.vercel.app/jwt', user,{withCredentials:true})
           .then(res => {
               console.log(res.data)
               if (res.data.success) {

@@ -27,7 +27,7 @@ const Comment = ({ title, email }) => {
 
 
         }
-        fetch('http://localhost:3006/comments', {
+        fetch('https://blog-mania-theta.vercel.app/comments', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

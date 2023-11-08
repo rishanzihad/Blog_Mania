@@ -13,7 +13,7 @@ const FeatureBlogs = () => {
 
 
   useEffect(() => {
-    axios.get('http://localhost:3006/blogs')
+    axios.get('https://blog-mania-theta.vercel.app/blogs')
       .then((res) => {
         setBlogs(res.data);
       });

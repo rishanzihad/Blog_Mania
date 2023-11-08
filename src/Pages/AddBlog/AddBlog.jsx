@@ -37,7 +37,7 @@ const AddBlog = () => {
 
         const addBlog = { title,ownerName,ownerImage,date, time, image, category, shortDescription, longDescription, email }
         console.log(addBlog)
-        fetch('http://localhost:3006/blogs', {
+        fetch('https://blog-mania-theta.vercel.app/blogs', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

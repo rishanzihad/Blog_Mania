@@ -42,7 +42,7 @@ const Wishlist = () => {
     }).then((result) => {
         if (result.isConfirmed) {
                 console.log(_id)
-            fetch(`http://localhost:3006/wishlist/${_id}`, {
+            fetch(`https://blog-mania-theta.vercel.app/wishlist/${_id}`, {
                 method: 'DELETE'
             })
 
