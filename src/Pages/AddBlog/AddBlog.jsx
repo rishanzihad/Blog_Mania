@@ -25,6 +25,8 @@ const AddBlog = () => {
         e.preventDefault()
         const form = e.target
         const title = form.tittle.value
+        const ownerName=user.displayName
+        const ownerImage=user.photoURL
         const time = form.time.value
         const image = form.image.value
         const email = user.email
@@ -33,7 +35,7 @@ const AddBlog = () => {
         const shortDescription = form.shortDescription.value
         const longDescription = form.longDescription.value
 
-        const addBlog = { title,date, time, image, category, shortDescription, longDescription, email }
+        const addBlog = { title,ownerName,ownerImage,date, time, image, category, shortDescription, longDescription, email }
         console.log(addBlog)
         fetch('http://localhost:3006/blogs', {
             method: "POST",
