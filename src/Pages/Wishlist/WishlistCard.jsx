@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
+
+
+
 
 
 const WishlistCard = ({wish,handleDelete}) => {
     const{_id,category,image, title,shortDescription}=wish
-
+ 
     return (
         <div className="relative flex w-full ] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg">
   <div className="relative mx-4 h-2/3   mt-4 overflow-hidden text-white shadow-lg rounded-xl bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40">
@@ -63,7 +65,7 @@ const WishlistCard = ({wish,handleDelete}) => {
   </div>
 
   <div className="p-6 pt-3">
-    <button
+  <button
     onClick={() => handleDelete(_id)}
       className="block w-full select-none rounded-lg bg-pink-500 py-3.5 px-7 text-center align-middle font-sans text-sm font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
       type="button"
@@ -71,6 +73,7 @@ const WishlistCard = ({wish,handleDelete}) => {
     >
       Delete
     </button>
+
   </div>
 </div>
 

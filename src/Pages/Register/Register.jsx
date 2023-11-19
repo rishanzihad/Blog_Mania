@@ -4,9 +4,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { useContext } from 'react';
 
-import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { FcGoogle } from 'react-icons/fc';
 import Header from '../../Components/Header/Header';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 
 const Register = () => {
@@ -27,19 +27,19 @@ const Register = () => {
         const password =e.target.password.value
         const img =e.target.img.value
 
-        const lengthPattern = /.{6,}/;
-        const capitalLetterPattern = /[A-Z]/;
-        const specialCharacterPattern = /[^a-zA-Z0-9]/;
+       
         const numericCharacterPattern = /[0-9]/;
-        if (!lengthPattern.test(password)) {
-            toast.success('Password must be at least 6 characters');
-            return;
-          } else if (!capitalLetterPattern.test(password)) {
-          toast.error('Password must contain at least one capital letter');
-          return;
-        } else if (!specialCharacterPattern.test(password)) {
-          toast.error('Password must contain at least one special character');
-          return;
+        if (password.length < 6) {
+            toast.error('Password must be at least 6 characters');
+            return
+        } else if (!/[A-Z]/.test(password)) {
+            toast.error('Password must contain at least one capital letter');
+            return
+        }
+        else if (!/[^a-zA-Z0-9]/.test(password)){
+            toast.error('Password must contain at least one Special letter');
+            return
+        
         } else if (!numericCharacterPattern.test(password)) {
           toast.error('Password must contain at least one numeric character');
           return;
@@ -54,7 +54,9 @@ const Register = () => {
                 navigate('/')
             })
         })
-        .catch(error =>{toast.error(error.message)}
+        .catch(error =>{
+            console.log(error.message)
+            toast.error(error.message)}
         )
 
     }
@@ -62,7 +64,7 @@ const Register = () => {
     return (
         <>
            <div>
-            <Header></Header>
+        
            <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col ">
                     <div className="text-center lg:text-left">

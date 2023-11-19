@@ -15,13 +15,14 @@ const Header = () => {
         <div className="gap-2 lg:flex  flex-row">
             <li className="text-xl"> <NavLink to='/' className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-green-400 bg-black underline ' : ''}>Home</NavLink> </li>
             {
-                user ? <li className="text-xl"> <NavLink to='/addblog' className={({ isActive, isPending }) => isPending ? 'pending' : isActive ?  'text-green-400 bg-black underline ' : ''}>Add Blog</NavLink> </li> : <li className="text-xl"> <Link to='/login' >Add Product</Link> </li>
+                user ? <li className="text-xl"> <NavLink to='/addblog' className={({ isActive, isPending }) => isPending ? 'pending' : isActive ?  'text-green-400 bg-black underline ' : ''}>Add Blog</NavLink> </li> : <li className="text-xl"> <Link to='/login' >Add Blog</Link> </li>
             }
+                        <li className="text-xl"> <NavLink to='/allblogs' className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-green-400 bg-black underline ' : ''}>All Blogs</NavLink> </li> 
             {
-                user ? <li className="text-xl"> <NavLink to='/allblogs' className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-green-400 bg-black underline ' : ''}>All blogs</NavLink> </li> : <li className="text-xl"> <Link to='/login' >My Cart</Link> </li>
+                user ? <li className="text-xl"> <NavLink to='/wishlist' className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-green-400 bg-black underline ' : ''}>wishlist</NavLink> </li> : <li className="text-xl"> <Link to='/login' >WishList</Link> </li>
             }
             <li className="text-xl"> <NavLink to='/featuredblogs' className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-green-400 bg-black underline ' : ''}>Featured Blogs</NavLink> </li> 
-            <li className="text-xl"> <NavLink to='/wishlist' className={({ isActive, isPending }) => isPending ? 'pending' : isActive ? 'text-green-400 bg-black underline ' : ''}>Wishlist</NavLink> </li> 
+
 
         </div>
 

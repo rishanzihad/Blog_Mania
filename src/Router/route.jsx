@@ -55,6 +55,14 @@ const route = createBrowserRouter([
                 loader: () => fetch('https://blog-mania-theta.vercel.app/blogs')
 
             },
+            {
+                path: '/login',
+                element: <Login></Login>
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
+            },
 
          
 
@@ -64,13 +72,6 @@ const route = createBrowserRouter([
 
         ]
     },
-    {
-        path: '/login',
-        element: <Login></Login>
-    },
-    {
-        path: '/register',
-        element: <Register></Register>
-    },
+   
 ])
 export default route;

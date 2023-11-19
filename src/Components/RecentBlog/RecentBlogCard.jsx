@@ -101,13 +101,21 @@ const RecentBlogCard = ({blog}) => {
   <Link className="btn bg-yellow-300 w-full" to={`/details/${_id}`}> <button >Details</button></Link>
   </div>
   <div className="p-6 w-full pt-0">
-    <button   onClick={()=>handleWish(_id)}
-      className="select-none w-full rounded-lg bg-green-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-      type="button"
-      data-ripple-light="true"
-    >
-     Wish List
-    </button >
+  {
+    user?  <button   onClick={()=>handleWish(_id)}
+    className="select-none w-full rounded-lg bg-green-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+    type="button"
+    data-ripple-light="true"
+  >
+   Wish List
+  </button >: <button
+  className="select-none w-full rounded-lg bg-green-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+  >
+  
+     <Link 
+  
+   to="/login">Wish List</Link></button>
+  }
   </div>
 </div>
     );

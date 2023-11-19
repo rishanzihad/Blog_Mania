@@ -52,13 +52,11 @@ const Login = () => {
               }
           })
         })
-        
-
         .catch(error =>toast.error(error.message))
     }
     return (
        <div>
-        <Header></Header>
+       
          <div className="hero min-h-screen bg-base-200">
       
       <div className="hero-content lg:w-[500px] flex-col lg:flex-col">
